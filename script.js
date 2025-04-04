@@ -33,7 +33,7 @@ function startGame(player1, player2) {
                 if (checkWinner(gameBoard)) {
                     document.querySelector(".message").textContent = `${currentName} congratulations you won!`;
                 } else {
-                    currentPlayer = currentPlayer === "X" ? "O" : "X";
+                    currentPlayer = currentPlayer === "x" ? "o" : "x";
                     currentName = currentName === player1 ? player2 : player1;
                     document.querySelector(".message").textContent = `${currentName}, you're up!`;
                 }
