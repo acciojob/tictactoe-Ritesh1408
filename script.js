@@ -1,7 +1,6 @@
-//your JS code here. If required.
 document.getElementById("submit").addEventListener("click", function() {
-    const player1 = document.getElementById("player-1").value;
-    const player2 = document.getElementById("player-2").value;
+    const player1 = document.getElementById("player1").value;
+    const player2 = document.getElementById("player2").value;
 
     if (player1 === "" || player2 === "") {
         alert("Please enter names for both players!");
@@ -21,18 +20,18 @@ function startGame(player1, player2) {
     let currentName = player1;
     let gameBoard = ["", "", "", "", "", "", "", "", ""];
 
-    // Create the board
-    for (let i = 0; i < 9; i++) {
+    // Create the board with IDs from 1 to 9
+    for (let i = 1; i <= 9; i++) {
         const cell = document.createElement("div");
         cell.classList.add("cell");
-        cell.setAttribute("id", i);
+        cell.setAttribute("id", i); // Corrected to match Cypress test IDs
         cell.addEventListener("click", function() {
-            if (gameBoard[i] === "" && !checkWinner(gameBoard)) {
-                gameBoard[i] = currentPlayer;
+            if (gameBoard[i - 1] === "" && !checkWinner(gameBoard)) {
+                gameBoard[i - 1] = currentPlayer;
                 cell.textContent = currentPlayer;
 
                 if (checkWinner(gameBoard)) {
-                    document.querySelector(".message").textContent = `${currentName}, congratulations you won!`;
+                    document.querySelector(".message").textContent = `${currentName} congratulations you won!`;
                 } else {
                     currentPlayer = currentPlayer === "X" ? "O" : "X";
                     currentName = currentName === player1 ? player2 : player1;
