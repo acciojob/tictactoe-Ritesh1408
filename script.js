@@ -16,7 +16,7 @@ function startGame(player1, player2) {
     const board = document.getElementById("board");
     board.innerHTML = ""; // Clear any existing board
 
-    let currentPlayer = "X";
+    let currentPlayer = "x";
     let currentName = player1;
     let gameBoard = ["", "", "", "", "", "", "", "", ""];
 
